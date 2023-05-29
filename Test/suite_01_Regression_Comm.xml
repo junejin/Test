@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+
+<suite name="Regression test" parallel="tests"
+	thread-count="10">
+	<test name="chrome_PCWeb" preserve-order="true">
+		<parameter name="platform" value="chrome_PCWeb" />
+		<classes>
+			<class name="com.scenario.common.FaceWallet" />
+		</classes>
+	</test>
+
+	<test name="firefox_PCWeb" preserve-order="true">
+		<parameter name="platform" value="firefox_PCWeb" />
+		<classes>
+			<class name="com.scenario.common.FaceWallet" />
+		</classes>
+	</test>
+	
+	<!-- <test name="safari_PCWeb" preserve-order="true">
+		<parameter name="platform" value="safari_PCWeb" />
+		<classes>
+			<class name="com.scenario.common.FaceWallet" />
+		</classes>
+	</test>-->
+
+</suite>
