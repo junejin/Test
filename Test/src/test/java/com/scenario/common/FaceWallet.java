@@ -59,13 +59,6 @@ public class FaceWallet extends SetUp {
 //		WebElement pw = driver.findElement(By.xpath("//input[@type=\"password\"]"));
 //		pw.sendKeys("");
 		
-		try {
-			Thread.sleep(5000);
-		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		
 	}
 	
 	// amounts() 메서드에서 관리하는 코인수 데이터를 불러와서 반복 전송
