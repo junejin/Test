@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results ignored="0" total="4" passed="4" failed="0" skipped="0">
+  <reporter-output>
+  </reporter-output>
+  <suite started-at="2023-05-31T21:55:36 KST" name="Regression test" finished-at="2023-05-31T21:55:43 KST" duration-ms="6446">
+    <groups>
+    </groups>
+    <test started-at="2023-05-31T21:55:36 KST" name="chrome_PCWeb" finished-at="2023-05-31T21:55:43 KST" duration-ms="6390">
+      <class name="com.scenario.common.FaceWallet">
+        <test-method is-config="true" signature="setup(java.lang.String)[pri:0, instance:com.scenario.common.FaceWallet@747ddf94]" started-at="2023-05-31T21:55:36 KST" name="setup" finished-at="2023-05-31T21:55:39 KST" duration-ms="2516" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[chrome_PCWeb]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setup -->
+        <test-method signature="CASE_01_네트워크_선택()[pri:0, instance:com.scenario.common.FaceWallet@747ddf94]" started-at="2023-05-31T21:55:39 KST" name="CASE_01_네트워크_선택" finished-at="2023-05-31T21:55:39 KST" duration-ms="44" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- CASE_01_네트워크_선택 -->
+        <test-method signature="CASE_02_소셜로그인()[pri:0, instance:com.scenario.common.FaceWallet@747ddf94]" started-at="2023-05-31T21:55:39 KST" name="CASE_02_소셜로그인" finished-at="2023-05-31T21:55:43 KST" duration-ms="3710" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- CASE_02_소셜로그인 -->
+        <test-method is-config="true" signature="tearDownClass()[pri:0, instance:com.scenario.common.FaceWallet@747ddf94]" started-at="2023-05-31T21:55:43 KST" name="tearDownClass" finished-at="2023-05-31T21:55:43 KST" duration-ms="111" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDownClass -->
+      </class> <!-- com.scenario.common.FaceWallet -->
+    </test> <!-- chrome_PCWeb -->
+    <test started-at="2023-05-31T21:55:36 KST" name="firefox_PCWeb" finished-at="2023-05-31T21:55:43 KST" duration-ms="6446">
+      <class name="com.scenario.common.FaceWallet">
+        <test-method is-config="true" signature="beferoSuite()[pri:0, instance:com.scenario.common.FaceWallet@3590fc5b]" started-at="2023-05-31T21:55:36 KST" name="beferoSuite" finished-at="2023-05-31T21:55:36 KST" duration-ms="3" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- beferoSuite -->
+        <test-method is-config="true" signature="setup(java.lang.String)[pri:0, instance:com.scenario.common.FaceWallet@3590fc5b]" started-at="2023-05-31T21:55:36 KST" name="setup" finished-at="2023-05-31T21:55:39 KST" duration-ms="2629" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[firefox_PCWeb]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setup -->
+        <test-method signature="CASE_01_네트워크_선택()[pri:0, instance:com.scenario.common.FaceWallet@3590fc5b]" started-at="2023-05-31T21:55:39 KST" name="CASE_01_네트워크_선택" finished-at="2023-05-31T21:55:39 KST" duration-ms="227" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- CASE_01_네트워크_선택 -->
+        <test-method signature="CASE_02_소셜로그인()[pri:0, instance:com.scenario.common.FaceWallet@3590fc5b]" started-at="2023-05-31T21:55:39 KST" name="CASE_02_소셜로그인" finished-at="2023-05-31T21:55:42 KST" duration-ms="3164" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- CASE_02_소셜로그인 -->
+        <test-method is-config="true" signature="tearDownClass()[pri:0, instance:com.scenario.common.FaceWallet@3590fc5b]" started-at="2023-05-31T21:55:42 KST" name="tearDownClass" finished-at="2023-05-31T21:55:43 KST" duration-ms="417" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDownClass -->
+      </class> <!-- com.scenario.common.FaceWallet -->
+    </test> <!-- firefox_PCWeb -->
+  </suite> <!-- Regression test -->
+</testng-results>

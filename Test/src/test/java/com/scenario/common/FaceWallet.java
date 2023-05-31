@@ -1,8 +1,13 @@
 package com.scenario.common;
 
 
+import static org.testng.Assert.assertEquals;
 import static org.testng.Assert.assertNotNull;
 
+import java.security.InvalidKeyException;
+import java.security.NoSuchAlgorithmException;
+import java.security.SignatureException;
+import java.security.spec.InvalidKeySpecException;
 import java.util.Set;
 
 import org.openqa.selenium.By;
@@ -12,6 +17,10 @@ import org.openqa.selenium.support.PageFactory;
 import org.testng.Assert;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
+import org.web3j.crypto.CipherException;
+import org.web3j.crypto.Keys;
+import org.web3j.crypto.Sign;
+import org.web3j.utils.Numeric;
 
 public class FaceWallet extends SetUp {
 	@FindBy(xpath = "//h2[text()='Coin Transaction']")
@@ -23,7 +32,7 @@ public class FaceWallet extends SetUp {
 	}
 	
 	@Test
-	public void CASE_01_네트워크_선택() {
+	public void CASE_01_네트워크_선택() throws NoSuchAlgorithmException, InvalidKeySpecException, InvalidKeyException, SignatureException, CipherException {
 		
 		// Mumbai 네트워크 선택
 		WebElement network = driver.findElement(By.xpath("//div[text() = 'Mumbai']"));
@@ -32,7 +41,7 @@ public class FaceWallet extends SetUp {
 		// Connected 문구 노출되는지 확인
 		WebElement success = driver.findElement(By.xpath("//div[text() = 'Connected']"));
 		Assert.assertNotNull(success);
-		
+				
 	}
 	@Test
 	public void CASE_02_소셜로그인() {
@@ -59,6 +68,7 @@ public class FaceWallet extends SetUp {
 //		WebElement pw = driver.findElement(By.xpath("//input[@type=\"password\"]"));
 //		pw.sendKeys("");
 		
+
 	}
 	
 	// amounts() 메서드에서 관리하는 코인수 데이터를 불러와서 반복 전송
@@ -101,10 +111,11 @@ public class FaceWallet extends SetUp {
 		};
 	}
 	//@Test
-	public void CASE_04_메시지_서명() {
+	public void CASE_04_메시지_서명() throws SignatureException {
 		// 서명 입력 박스에 메시지 입력
+		String originalMessage = "서명 메시지입니다. ";
 		WebElement messageBox = driver.findElement(By.xpath("//textarea"));
-		messageBox.sendKeys("서명 메시지입니다. ");
+		messageBox.sendKeys(originalMessage);
 		
 		// Sign Message 버튼 클릭
 		WebElement signMessage = driver.findElement(By.xpath("//div[text()='Sign Message']"));
@@ -127,7 +138,25 @@ public class FaceWallet extends SetUp {
 		
 		// 서명된 메시지 확인
 		WebElement signedMsgBtn = driver.findElement(By.xpath("//h4[text()='Signed message']/following-sibling::div"));
-		String signedMsg = signedMsgBtn.getText();
+		String signedHash = signedMsgBtn.getText();
+		
+		// 메시지 서명 검증
+		WebElement myAddress = driver.findElement(By.xpath("//div[@class='AccountInformation']/descendant::div[contains(text(),'Address:')]"));
+		String address = myAddress.getText().toLowerCase();
+		
+		String r = signedHash.substring(0, 66);
+		String s = "0x" + signedHash.substring(66, 130);
+		String v = "0x" + signedHash.substring(130, 132);
+
+		String pubkey = Sign.signedPrefixedMessageToKey(originalMessage.getBytes(), new Sign.SignatureData(
+				Numeric.hexStringToByteArray(v)[0], Numeric.hexStringToByteArray(r), Numeric.hexStringToByteArray(s)))
+				.toString(16);
+		
+		String decryptedAddress = "0x" + Keys.getAddress(pubkey);
+		System.out.println("Address :          " + address);
+		System.out.println("decryptedAddress : " + decryptedAddress);
+		assertEquals(decryptedAddress, address);
+	
 		
 	}
 	
